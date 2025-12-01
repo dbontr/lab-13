@@ -1,0 +1,13 @@
+1. Is there a fault in the program? If so, locate it and explain.
+
+2. Define a test case that does not execute the fault. Start from this question, 
+if it is possible, you should give the test case (the attendance record with 10 values), 
+the expected output and the actual output. If impossible, explains the reason. Besides, 
+you should implement the complete program, including the functions under test, 
+and verify your inputs along with their corresponding outputs.
+
+3. Define a test case that executes the fault but does not result in an error state.
+
+4. Define a test case that results in an error state but not a failure.
+
+5. Define a test case that results in failure.
