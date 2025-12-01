@@ -1,13 +1,41 @@
 1. Is there a fault in the program? If so, locate it and explain.
 
+The loop starts at i = 1 instead of i = 0, which means the code ignores the first lecture. 
+Since all 10 lectures are supposed to be counted, this is a mistake.
+
+
 2. Define a test case that does not execute the fault. Start from this question, 
 if it is possible, you should give the test case (the attendance record with 10 values), 
 the expected output and the actual output. If impossible, explains the reason. Besides, 
 you should implement the complete program, including the functions under test, 
 and verify your inputs along with their corresponding outputs.
 
+If the list has the correct size (10), the loop always runs and the fault always happens. 
+The only time the loop doesn’t run is if the list has 0 or 1 items. That avoids the fault, 
+but those sizes are invalid because the problem says there must be 10 lectures.
+
+
 3. Define a test case that executes the fault but does not result in an error state.
+
+Use a record where the first lecture is a 1 (which is present).
+For example: [1, 0, 0, 1, 1, 1, 1, 1, 1, 1].
+Even though the code skips the first item, skipping a “1” doesn’t change the absence count, 
+so nothing goes wrong.
+
 
 4. Define a test case that results in an error state but not a failure.
 
+Use a record where the first lecture is a 0, but the total absences are still less than 3. 
+For example: [0, 0, 1, 1, 1, 1, 1, 1, 1, 1].
+The correct count is 2 absences, but the buggy code only counts 1. 
+That’s an error inside the program, but both versions still say “no fail,” 
+so the final output isn’t wrong.
+
+
 5. Define a test case that results in failure.
+
+Use a record where the student misses 3 or more lectures but one of them is at index 0. 
+For example: [0, 0, 0, 1, 1, 1, 1, 1, 1, 1].
+Correct code sees 3 absences -> student fails.
+Buggy code skips the first zero and sees only 2 absences -> student passes.
+The final answer is wrong, so this is a failure.
